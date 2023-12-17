@@ -13,6 +13,17 @@ UCLASS()
 class FIRSTPERSONSHOOTER_API AShooterAIController : public AAIController
 {
 	GENERATED_BODY()
+
+public:
+	virtual void Tick(float DeltaSeconds) override;
+	
 protected:
 	virtual void BeginPlay() override;
+
+private:
+	UPROPERTY(VisibleAnywhere)
+	APawn* PlayerPawn;
+	
+	UPROPERTY(EditAnywhere)
+	class UBehaviorTree* AIBehavior;
 };
