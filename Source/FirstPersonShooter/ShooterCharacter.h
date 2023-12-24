@@ -27,11 +27,13 @@ public:
 
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
+	
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	virtual float TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, class AController* EventInstigator, AActor* DamageCauser) override;
+
+	void Shoot();
 
 
 private:
@@ -42,7 +44,6 @@ private:
 	void LookUpController(float AxisValue);
 	void LookRightController(float AxisValue);
 	void Jump();
-	void Shoot();
 
 	UPROPERTY(EditAnywhere)
 	float RotationRate = 25;

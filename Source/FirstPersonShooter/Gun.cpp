@@ -41,8 +41,10 @@ void AGun::Shoot()
 	FVector EndPoint = Location + Rotation.Vector() * MaxRange;
 
 	FHitResult HitResult;
+	FCollisionQueryParams Params;
+	Params.AddIgnoredActor(GetOwner());
 
-	if (GetWorld()->LineTraceSingleByChannel(HitResult, Location, EndPoint, ECollisionChannel::ECC_GameTraceChannel1))
+	if (GetWorld()->LineTraceSingleByChannel(HitResult, Location, EndPoint, ECollisionChannel::ECC_GameTraceChannel1, Params))
 	{
 		FVector ShotDirection = -Rotation.Vector();
 		AActor* HitActor = HitResult.GetActor();
