@@ -17,6 +17,9 @@ class FIRSTPERSONSHOOTER_API AShooterPlayerController : public APlayerController
 public:
 	virtual void GameHasEnded(AActor* EndGameFocus, bool bIsWinner) override;
 
+protected:
+	virtual void BeginPlay() override;
+
 private:
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<UUserWidget> LoseScreenClass;
@@ -25,7 +28,13 @@ private:
 	TSubclassOf<UUserWidget> WinScreenClass;
 	
 	UPROPERTY(EditAnywhere)
+	TSubclassOf<UUserWidget> HUDClass;
+	
+	UPROPERTY(EditAnywhere)
 	float RestartDelay = 5;
+
+	UPROPERTY()
+	UUserWidget* HUD;
 
 	FTimerHandle RestartTimer;
 };
