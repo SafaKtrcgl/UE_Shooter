@@ -16,4 +16,8 @@ class FIRSTPERSONSHOOTER_API AKillThemAllGameMode : public AFirstPersonShooterGa
 
 public:
 	virtual void PawnKilled(APawn* PawnKilled) override;
+
+private:
+	void EndGame(bool bIsPlayerWinner);
+	
 };
